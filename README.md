@@ -49,14 +49,6 @@ Traditional input devices create friction. Gesture Control removes the physical 
 
 ---
 
-## 🎥 Demo
-
-<div align="center">
-
-| Live HUD Overlay | Gesture Detection in Action |
-|:---:|:---:|
-| *(Add demo GIF here)* | *(Add screenshot here)* |
-
 > 💡 **Tip:** Record a short screen + webcam capture and drop the GIF here via `![Demo](demo.gif)`
 
 </div>
