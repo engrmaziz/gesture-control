@@ -1,106 +1,217 @@
-# ✋ Gesture Control — Windows Edition
+<div align="center">
 
-> **Control your entire Windows PC with hand gestures — no API key, no internet, 100% offline and free.**
+# ✋ Gesture Control
+
+### Control your entire Windows PC with hand gestures — no API key, no internet, 100% offline and free.
+
+<p>
+  <a href="https://github.com/engrmaziz/gesture-control/stargazers">
+    <img src="https://img.shields.io/github/stars/engrmaziz/gesture-control?style=for-the-badge&logo=starship&color=f4d03f&labelColor=1a1a2e" alt="Stars"/>
+  </a>
+  <a href="https://github.com/engrmaziz/gesture-control/network/members">
+    <img src="https://img.shields.io/github/forks/engrmaziz/gesture-control?style=for-the-badge&logo=git&color=48cae4&labelColor=1a1a2e" alt="Forks"/>
+  </a>
+  <a href="https://github.com/engrmaziz/gesture-control/issues">
+    <img src="https://img.shields.io/github/issues/engrmaziz/gesture-control?style=for-the-badge&logo=github&color=e74c3c&labelColor=1a1a2e" alt="Issues"/>
+  </a>
+  <a href="https://github.com/engrmaziz/gesture-control/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/engrmaziz/gesture-control?style=for-the-badge&color=2ecc71&labelColor=1a1a2e" alt="License"/>
+  </a>
+  <a href="https://github.com/engrmaziz/gesture-control/commits">
+    <img src="https://img.shields.io/github/last-commit/engrmaziz/gesture-control?style=for-the-badge&logo=github&color=9b59b6&labelColor=1a1a2e" alt="Last Commit"/>
+  </a>
+  <a href="https://github.com/engrmaziz/gesture-control">
+    <img src="https://img.shields.io/github/repo-size/engrmaziz/gesture-control?style=for-the-badge&logo=files&color=e67e22&labelColor=1a1a2e" alt="Repo Size"/>
+  </a>
+  <a href="https://github.com/engrmaziz/gesture-control/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/engrmaziz/gesture-control?style=for-the-badge&logo=github&color=1abc9c&labelColor=1a1a2e" alt="Contributors"/>
+  </a>
+</p>
+
+</div>
 
 ---
 
-## 🚀 Overview
+## 🚀 About The Project
 
-**Gesture Control** turns your ordinary webcam into a touchless input device. Using real-time hand landmark detection, it maps specific hand shapes and motions to system-level actions: moving the mouse, clicking, adjusting volume, switching windows, and more.
+**Gesture Control** transforms your ordinary webcam into a touchless, hands-free input device. Powered by Google's MediaPipe neural network — running entirely on your local CPU — it detects 21 hand landmarks in real time and maps natural hand shapes and motions to system-level actions: moving the mouse, clicking, adjusting volume, switching windows, and more.
 
-It runs entirely on your local machine — no cloud calls, no subscriptions, no setup beyond a one-time `pip install`. Just point your hand at the camera and start controlling your PC.
+**The problem it solves:**  
+Traditional input devices create friction. Gesture Control removes the physical barrier between you and your computer. Whether you're presenting, cooking, exercising, or simply exploring the frontier of Human-Computer Interaction, you can control your PC without touching anything.
 
 **Who is it for?**
-- Developers and makers exploring computer vision
-- Users who want accessibility-friendly, touch-free PC control
-- Anyone curious about gesture-based HCI (Human-Computer Interaction)
+- 🧑‍💻 Developers and makers exploring computer vision and HCI
+- ♿ Users who benefit from accessibility-friendly, touch-free PC control
+- 🎓 Students learning real-time AI/CV application development
+- 🖥️ Presenters who want hands-free slide and window management
+
+> **$0 · No API key · No internet · Runs 100% on your machine.**
+
+---
+
+## 🎥 Demo
+
+<div align="center">
+
+| Live HUD Overlay | Gesture Detection in Action |
+|:---:|:---:|
+| *(Add demo GIF here)* | *(Add screenshot here)* |
+
+> 💡 **Tip:** Record a short screen + webcam capture and drop the GIF here via `![Demo](demo.gif)`
+
+</div>
 
 ---
 
 ## ✨ Features
 
-- 🖱️ **Smooth mouse control** — move the cursor using just your index finger
-- 🖱️ **Left & right click** — pinch or peace-sign gestures trigger clicks
-- 🔊 **Volume control** — raise/lower your hand to adjust system volume in real time
-- 🔄 **Window switching** — swipe your open hand left or right to Alt+Tab
-- 🖥️ **Show desktop** — three-finger gesture triggers Win+D
-- 📋 **Task View** — index + pinky gesture triggers Win+Tab
-- ⏸️ **Pause / Resume** — hold a fist for 1.5 seconds to freeze or unfreeze all controls
-- 🎨 **Live HUD overlay** — real-time heads-up display with gesture name, FPS, volume bar, and action log
-- ⚡ **Zero latency design** — `pyautogui.PAUSE = 0`, frame-level gesture dispatch
-- 📴 **Fully offline** — no API keys, no cloud, no data sent anywhere
+| Feature | Description |
+|---|---|
+| 🖱️ **Smooth Mouse Control** | Move the cursor naturally using only your index finger — exponential smoothing eliminates jitter |
+| 🤏 **Left Click** | Pinch your thumb and index finger together to click |
+| ✌️ **Right Click** | Peace-sign (index + middle) triggers a right-click |
+| 🔊 **Real-Time Volume Control** | Raise or lower your open hand to set system volume — hand height maps directly to volume level |
+| 🔄 **Window Switching** | Swipe your open hand left or right to cycle through windows with Alt+Tab / Alt+Shift+Tab |
+| 🖥️ **Show Desktop** | Three-finger gesture instantly triggers Win+D |
+| 📋 **Task View** | Index + Pinky (rock sign) opens Win+Tab Task View |
+| ⏸️ **Pause / Resume** | Hold a fist for 1.5 seconds to freeze all gesture controls — hold again to resume |
+| 🎨 **Live HUD Overlay** | Semi-transparent heads-up display with active gesture badge, FPS counter, volume bar, and fading action log |
+| ⚡ **Zero-Latency Design** | `pyautogui.PAUSE = 0` + frame-level gesture dispatch — actions fire within the same frame cycle |
+| 📴 **Fully Offline** | No API keys, no cloud endpoints, no telemetry — all inference runs locally on CPU |
+| 🚀 **One-Click Launcher** | `START.bat` installs all dependencies and launches the app automatically |
 
 ---
 
 ## 🧠 How It Works
 
+The system runs a tight 4-stage pipeline on every captured webcam frame:
+
 ```
-Webcam Frame
-     │
-     ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                        PIPELINE OVERVIEW                         │
+└──────────────────────────────────────────────────────────────────┘
+
+  [Webcam]  960×540 @ 30 fps
+      │
+      ▼
 ┌─────────────────────────────────┐
-│  cvzone HandDetector            │
-│  (MediaPipe under the hood)     │
-│  → 21 hand landmarks (x, y, z)  │
+│  1. CAPTURE  (OpenCV)           │
+│  cv2.VideoCapture → flip frame  │
 └─────────────────────────────────┘
-     │
-     ▼
+      │
+      ▼
 ┌─────────────────────────────────┐
-│  Gesture Classifier             │
+│  2. DETECT  (cvzone + MediaPipe)│
+│  HandDetector.findHands()       │
+│  → 21 landmarks (x, y, z) each  │
+└─────────────────────────────────┘
+      │
+      ▼
+┌─────────────────────────────────┐
+│  3. CLASSIFY  (get_gesture)     │
 │  fingersUp() + pinch distance   │
 │  → POINT / PINCH / PEACE /      │
 │    OPEN / THREE / ROCK / FIST   │
 └─────────────────────────────────┘
-     │
-     ▼
+      │
+      ▼
 ┌─────────────────────────────────┐
-│  Action Dispatcher              │
-│  → PyAutoGUI  (mouse/keyboard)  │
-│  → keyboard   (volume keys)     │
+│  4. ACT  (action_*)             │
+│  PyAutoGUI → mouse / shortcuts  │
+│  keyboard  → volume keys        │
 └─────────────────────────────────┘
-     │
-     ▼
+      │
+      ▼
 ┌─────────────────────────────────┐
-│  HUD Renderer (OpenCV)          │
-│  → Gesture badge, FPS, vol bar  │
-│  → On-screen action log         │
+│  5. DISPLAY  (draw_hud)         │
+│  OpenCV overlay → cv2.imshow    │
 └─────────────────────────────────┘
 ```
 
-1. **Capture** — OpenCV reads webcam frames at 960×540 @ 30 fps.
-2. **Detect** — cvzone's `HandDetector` (powered by MediaPipe) extracts 21 3D landmarks for one hand per frame.
-3. **Classify** — `fingersUp()` returns which fingers are extended; combined with thumb-index pinch distance, a gesture label is assigned.
-4. **Act** — The gesture label is dispatched to an action function that calls PyAutoGUI or the `keyboard` library to control the OS.
-5. **Display** — OpenCV draws a semi-transparent HUD over the webcam feed showing the active gesture, FPS counter, volume bar, and a fading action log.
+1. **Capture** — OpenCV reads webcam frames at 960×540 @ 30 fps and flips them horizontally for a mirror-like experience.
+2. **Detect** — cvzone's `HandDetector` (backed by MediaPipe BlazePalm + Hand Landmark models) extracts 21 3D landmarks for up to one hand per frame.
+3. **Classify** — `fingersUp()` returns a binary array of which fingers are extended. Combined with the Euclidean pinch distance between thumb tip (lm[4]) and index tip (lm[8]), a named gesture label is assigned.
+4. **Act** — The label is dispatched to a dedicated action function. Cooldown timers prevent accidental double-firing. Mouse movement uses exponential smoothing to eliminate jitter.
+5. **Display** — OpenCV draws a semi-transparent dark HUD strip, gesture badge, volume bar, swipe notification, fist-hold progress ring, and a fading action log onto each frame before displaying it.
+
+---
+
+## 🏗 Architecture
+
+```
+User's Hand
+     │
+     │  (webcam video)
+     ▼
+OpenCV (cv2.VideoCapture)
+     │
+     │  raw BGR frames
+     ▼
+cvzone HandDetector ──── MediaPipe BlazePalm + Landmark Model
+     │
+     │  lmList[21][x,y,z]  +  fingersUp[5]
+     ▼
+Gesture Classifier (get_gesture)
+     │
+     │  gesture label: POINT / PINCH / PEACE / OPEN / THREE / ROCK / FIST
+     ▼
+Action Dispatcher
+     ├── action_mouse()    ──→  PyAutoGUI.moveTo()
+     ├── action_click()    ──→  PyAutoGUI.click()
+     ├── action_rclick()   ──→  PyAutoGUI.rightClick()
+     ├── action_volume()   ──→  keyboard.send("volume up/down")
+     ├── action_swipe()    ──→  PyAutoGUI.hotkey("alt","tab")
+     ├── action_win_d()    ──→  PyAutoGUI.hotkey("win","d")
+     ├── action_win_tab()  ──→  PyAutoGUI.hotkey("win","tab")
+     └── action_fist()     ──→  Toggle paused state
+     │
+     ▼
+draw_hud (OpenCV overlay)
+     │
+     ▼
+cv2.imshow  →  Screen
+```
 
 ---
 
 ## 🛠 Tech Stack
 
-| Layer | Technology |
-|---|---|
-| **Language** | Python 3.11 |
-| **Hand Tracking** | [cvzone](https://github.com/cvzone/cvzone) + [MediaPipe](https://mediapipe.dev/) |
-| **Computer Vision** | [OpenCV](https://opencv.org/) (`opencv-python`) |
-| **Mouse / Keyboard** | [PyAutoGUI](https://pyautogui.readthedocs.io/) |
-| **Volume Keys** | [keyboard](https://github.com/boppreh/keyboard) |
-| **Math / Arrays** | [NumPy](https://numpy.org/) |
-| **Platform** | Windows (tested) |
+<div align="center">
 
----
+**Language**
 
-## 🎮 Gesture Reference
+![Python](https://img.shields.io/badge/Python_3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-| Gesture | Hand Shape | Action |
+**AI / Computer Vision**
+
+![MediaPipe](https://img.shields.io/badge/MediaPipe_0.10.14-0F9D58?style=for-the-badge&logo=google&logoColor=white)
+![cvzone](https://img.shields.io/badge/cvzone-latest-00B4D8?style=for-the-badge)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+
+**System Control**
+
+![PyAutoGUI](https://img.shields.io/badge/PyAutoGUI-FF6B6B?style=for-the-badge&logo=python&logoColor=white)
+![keyboard](https://img.shields.io/badge/keyboard-4ECDC4?style=for-the-badge&logo=python&logoColor=white)
+
+**Numerical Computing**
+
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+
+**Platform**
+
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+
+</div>
+
+| Layer | Technology | Purpose |
 |---|---|---|
-| ☝️ **POINT** | Index finger only | Move mouse cursor |
-| 🤏 **PINCH** | Pinch thumb + index | Left click |
-| ✌️ **PEACE** | Index + Middle fingers | Right click |
-| 🖐️ **OPEN** | All fingers extended | Volume (hand height = level) |
-| 👈👉 **SWIPE** | Open hand, move horizontally | Alt+Tab / Alt+Shift+Tab |
-| 🤟 **THREE** | Index + Middle + Ring | Win+D (show/hide desktop) |
-| 🤘 **ROCK** | Index + Pinky | Win+Tab (Task View) |
-| ✊ **FIST** | All fingers closed (hold 1.5s) | Pause / Resume all controls |
+| **Language** | Python 3.11 | Core runtime |
+| **Hand Tracking** | [cvzone](https://github.com/cvzone/cvzone) + [MediaPipe](https://mediapipe.dev/) `0.10.14` | 21-landmark hand detection |
+| **Computer Vision** | [OpenCV](https://opencv.org/) | Webcam capture, frame processing, HUD rendering |
+| **Mouse / Keyboard** | [PyAutoGUI](https://pyautogui.readthedocs.io/) | Mouse movement, clicks, system shortcuts |
+| **Volume Keys** | [keyboard](https://github.com/boppreh/keyboard) | Low-level volume key simulation |
+| **Math / Arrays** | [NumPy](https://numpy.org/) | Coordinate interpolation, clipping |
+| **Platform** | Windows 10/11 | OS target (uses Win32 keyboard/volume APIs) |
 
 ---
 
@@ -108,61 +219,73 @@ Webcam Frame
 
 ```
 gesture-control/
-├── gesture_control.py   ← Main application — all detection, gesture, and HUD logic
-├── requirements.txt     ← Python package dependencies
-├── START.bat            ← One-click Windows launcher (installs deps on first run)
+│
+├── gesture_control.py   ← Single-file application — all logic lives here
+├── requirements.txt     ← Python package dependencies (pip-installable)
+├── START.bat            ← One-click Windows launcher (auto-installs deps)
 ├── ins.txt              ← Quick manual install reference
-└── README.md            ← This file
+└── README.md            ← Documentation
 ```
 
-`gesture_control.py` is a single-file application organized into clear sections:
+`gesture_control.py` is organized into clearly commented sections:
 
-| Section | What it contains |
+| Section | Contents |
 |---|---|
-| **Config** | Camera resolution, smoothing, pinch threshold, cooldowns |
-| **State** | Global variables for tracking gesture continuity |
-| **Helpers** | `dist()` — Euclidean distance; `push_log()` — action log; `get_gesture()` — classifier |
+| **Config** | `CAM_W/H`, `SMOOTH`, `PINCH_PX`, `SWIPE_VEL`, `CLICK_CD`, `FIST_HOLD`, `VOL_TOP/BOT`, `MARGIN` |
+| **Colors** | BGR color constants for the HUD (`CYAN`, `GREEN`, `RED`, `YELLOW`, `PINK`, `DIM`, `WHITE`, `DARK`) |
+| **State** | Global variables tracking pause state, smooth cursor position, cooldown timers, volume level |
+| **Helpers** | `dist()` — Euclidean distance; `push_log()` — action log; `get_gesture()` — gesture classifier |
 | **Actions** | `action_mouse`, `action_click`, `action_rclick`, `action_volume`, `action_swipe`, `action_win_d`, `action_win_tab`, `action_fist` |
-| **HUD** | `draw_hud()` — renders the full overlay onto each frame |
-| **Main loop** | Camera init, frame capture, hand detection, gesture dispatch, display |
+| **HUD** | `draw_hud()` — full overlay renderer (gesture badge, FPS, volume bar, swipe label, fist progress, action log, cheat sheet) |
+| **Main loop** | Camera init, frame capture loop, hand detection, gesture dispatch, display |
 
 ---
 
 ## ⚙️ Installation
 
-### Requirements
-- **Windows** (PyAutoGUI's `hotkey` and `keyboard` volume send are Windows-native)
-- **Python 3.11** — MediaPipe 0.10.x does not support Python 3.12+
-- **Webcam**
+### Prerequisites
 
-### Option A — One-click launcher (recommended)
+| Requirement | Details |
+|---|---|
+| **OS** | Windows 10 or Windows 11 |
+| **Python** | 3.11.x — MediaPipe `0.10.14` does **not** support Python 3.12+ |
+| **Webcam** | Any standard USB or built-in webcam |
 
-1. Install **Python 3.11** from [python.org/downloads/release/python-3119](https://www.python.org/downloads/release/python-3119/)
-   > ⚠️ During install, check **"Add Python to PATH"**
+---
+
+### Option A — One-Click Launcher *(Recommended)*
+
+1. Install **Python 3.11** from [python.org](https://www.python.org/downloads/release/python-3119/)
+   > ⚠️ During setup, check **"Add Python to PATH"**
+
 2. Double-click **`START.bat`**
 
-`START.bat` will:
-- Verify Python 3.11 is available
-- Install all dependencies automatically (first time only, ~2 minutes)
-- Launch the application
+`START.bat` automatically:
+- ✅ Verifies Python 3.11 is available
+- 📦 Installs all dependencies on first run (~2 minutes)
+- 🚀 Launches the application
 
-### Option B — Manual install
+---
+
+### Option B — Manual Install
 
 ```bash
-# Clone the repository
+# 1. Clone the repository
 git clone https://github.com/engrmaziz/gesture-control.git
 cd gesture-control
 
-# Install dependencies with Python 3.11
+# 2. Install dependencies using Python 3.11
 py -3.11 -m pip install cvzone mediapipe==0.10.14 opencv-python pyautogui numpy keyboard
 
-# Run
+# 3. Run
 py -3.11 gesture_control.py
 ```
 
-### Option C — pip with requirements file
+---
 
-> **Note:** `cvzone` is not included in `requirements.txt` and must be installed separately.
+### Option C — requirements.txt
+
+> **Note:** `cvzone` is installed explicitly before `-r requirements.txt` because it is not listed in `requirements.txt`. The command below handles both in one step.
 
 ```bash
 py -3.11 -m pip install cvzone -r requirements.txt
@@ -171,33 +294,49 @@ py -3.11 gesture_control.py
 
 ---
 
+## 🎮 Gesture Reference
+
+| Gesture | Hand Shape | Action | Trigger |
+|---|---|---|---|
+| ☝️ **POINT** | Index finger only | Move mouse cursor | Continuous |
+| 🤏 **PINCH** | Pinch thumb + index | Left click | Cooldown: 0.45s |
+| ✌️ **PEACE** | Index + Middle fingers | Right click | Cooldown: 0.45s |
+| 🖐️ **OPEN** | All fingers extended | Volume control (height = level) | Continuous |
+| 👋 **SWIPE** | Open hand, horizontal motion | Alt+Tab / Alt+Shift+Tab | Cooldown: 1.0s |
+| 🤟 **THREE** | Index + Middle + Ring | Win+D (show/hide desktop) | On gesture change |
+| 🤘 **ROCK** | Index + Pinky | Win+Tab (Task View) | On gesture change |
+| ✊ **FIST** | All fingers closed, hold 1.5s | Pause / Resume all controls | Hold 1.5s |
+
+---
+
 ## 🔧 Configuration
 
-All tuneable constants live at the top of `gesture_control.py`:
+All tunable constants are at the top of `gesture_control.py` — no config files needed:
 
-| Variable | Default | What it controls |
+| Variable | Default | Description |
 |---|---|---|
 | `CAM_W`, `CAM_H` | `960`, `540` | Camera capture resolution |
-| `SMOOTH` | `5` | Mouse smoothing factor — higher = smoother but slightly slower |
-| `PINCH_PX` | `45` | Pixel distance between thumb and index tip to trigger a click |
-| `SWIPE_VEL` | `0.025` | Minimum wrist velocity (normalized) to trigger Alt+Tab |
+| `SMOOTH` | `5` | Mouse smoothing factor — higher = smoother but slightly more latency |
+| `PINCH_PX` | `45` | Pixel distance threshold between thumb and index tip to trigger a click |
+| `SWIPE_VEL` | `0.025` | Minimum normalized wrist velocity to trigger Alt+Tab |
 | `SWIPE_CD` | `1.0` | Seconds between consecutive swipe actions |
 | `CLICK_CD` | `0.45` | Seconds between consecutive click actions |
 | `FIST_HOLD` | `1.5` | Seconds to hold a fist before toggling pause |
-| `VOL_TOP` | `0.15` | Normalized camera Y for maximum volume |
-| `VOL_BOT` | `0.85` | Normalized camera Y for minimum volume |
-| `MARGIN` | `100` | Pixel margin used to map hand position to screen edges |
+| `VOL_TOP` | `0.15` | Normalized Y position (top of frame) = 100% volume |
+| `VOL_BOT` | `0.85` | Normalized Y position (bottom of frame) = 0% volume |
+| `MARGIN` | `100` | Pixel margin for mapping hand position to screen edges |
 
 ---
 
 ## 💡 Tips for Best Results
 
-- **Good lighting** dramatically improves hand detection accuracy
-- Position your hand **30–60 cm** from the camera
-- A **plain or neutral background** helps MediaPipe track landmarks more reliably
-- If the mouse feels jittery, increase `SMOOTH` from `5` to `8` or `10`
-- If clicks are triggering too fast, increase `CLICK_CD` (e.g., `0.6`)
-- Press **Q** in the camera window to quit
+- 💡 **Good lighting** dramatically improves landmark detection accuracy
+- 📏 Position your hand **30–60 cm** from the camera
+- 🎨 A **plain or neutral background** helps MediaPipe track reliably
+- 🖱️ If the mouse feels jittery, increase `SMOOTH` from `5` → `8` or `10`
+- 🖱️ If clicks fire too fast, increase `CLICK_CD` (e.g., `0.6`)
+- ⏸️ Hold a **FIST** for 1.5 seconds any time to pause/resume all controls
+- ❌ Press **Q** in the camera window to quit the application
 
 ---
 
@@ -205,21 +344,21 @@ All tuneable constants live at the top of `gesture_control.py`:
 
 | Package | Version | Purpose |
 |---|---|---|
-| `cvzone` | latest | High-level hand tracking wrapper for MediaPipe |
-| `mediapipe` | `0.10.14` | Google's hand landmark detection model |
-| `opencv-python` | latest | Webcam capture and HUD rendering |
-| `pyautogui` | latest | Mouse movement, clicks, and keyboard shortcuts |
-| `keyboard` | latest | System-level volume key simulation |
-| `numpy` | latest | Coordinate interpolation and math |
+| [`cvzone`](https://github.com/cvzone/cvzone) | latest | High-level MediaPipe hand tracking wrapper |
+| [`mediapipe`](https://mediapipe.dev/) | `0.10.14` | Google's BlazePalm + Hand Landmark model |
+| [`opencv-python`](https://opencv.org/) | latest | Webcam capture, image processing, HUD rendering |
+| [`pyautogui`](https://pyautogui.readthedocs.io/) | latest | Mouse movement, clicks, and keyboard shortcuts |
+| [`keyboard`](https://github.com/boppreh/keyboard) | latest | System-level volume key simulation |
+| [`numpy`](https://numpy.org/) | latest | Coordinate interpolation, normalization, clipping |
 
-All packages are free, open source, and run 100% offline.
+> All packages are free, open source, and run **100% offline** — no data ever leaves your machine.
 
 ---
 
-## 🚀 Quick Start (TL;DR)
+## ⚡ Quick Start (TL;DR)
 
 ```bash
-# 1. Install Python 3.11 from python.org
+# 1. Install Python 3.11 from https://python.org
 # 2. Clone and install
 git clone https://github.com/engrmaziz/gesture-control.git
 cd gesture-control
@@ -228,8 +367,26 @@ py -3.11 -m pip install cvzone mediapipe==0.10.14 opencv-python pyautogui numpy 
 py -3.11 gesture_control.py
 ```
 
-Then show your hand to the webcam and start gesturing. Press **Q** to quit.
+Point your hand at the webcam and start gesturing. Press **Q** to quit.
 
 ---
 
-**Built with:** cvzone · MediaPipe · OpenCV · PyAutoGUI · keyboard · $0
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-gesture`)
+3. Commit your changes (`git commit -m 'Add amazing gesture'`)
+4. Push to the branch (`git push origin feature/amazing-gesture`)
+5. Open a Pull Request
+
+---
+
+<div align="center">
+
+**Built with** cvzone · MediaPipe · OpenCV · PyAutoGUI · keyboard · $0
+
+⭐ Star this repo if you found it useful!
+
+</div>
