@@ -49,12 +49,6 @@ Traditional input devices create friction. Gesture Control removes the physical 
 
 ---
 
-> 💡 **Tip:** Record a short screen + webcam capture and drop the GIF here via `![Demo](demo.gif)`
-
-</div>
-
----
-
 ## ✨ Features
 
 | Feature | Description |
