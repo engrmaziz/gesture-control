@@ -1,0 +1,5 @@
+Please install python 3.11.x to run this project. 
+Open command prompt. 
+Run these commands
+1. py -3.11 -m pip install cvzone mediapipe opencv-python pyautogui numpy keyboard
+2. py -3.11 gesture_control.py
